@@ -1,11 +1,16 @@
 // dbConfig.js
-module.exports = {
-    user: 'postgres',
-    host: 'http://192.168.56.1:3000/user/',
-    database: 'vacinebem004',
-    password: 'admin',
-    port: 5432, // Porta padrão do PostgreSQL
-  };
+const knex = require('knex')({
+  client: 'pg',
+  connection: {
+    host : '192.168.1.10',
+    user : 'postgres',
+    password : 'admin',
+    database : 'vacinebem004',
+    port: 5432
+  }
+});
+
+module.exports = knex;
   
   const { PrismaClient } = require('@prisma/client');
 
